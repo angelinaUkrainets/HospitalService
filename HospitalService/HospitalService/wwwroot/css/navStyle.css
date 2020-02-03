@@ -1,0 +1,62 @@
+﻿body {
+    overflow-x: hidden;
+}
+
+nav{
+    margin-top:-40px!important;
+}
+
+h1 {
+    font-family: "Brush Script MT", cursive !important;
+    font-size: 40px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 45px;
+}
+
+#h1-about-page {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.a-image {
+    width: 25%;
+}
+
+    .a-image:hover {
+        padding: 5%;
+    }
+
+.img-a {
+    width: 100%;
+}
+
+.nav-pag {
+    margin-top: 20px;
+}
+
+.nav-a {
+    color: forestgreen !important;
+}
+
+.a-btn-success {
+    color: forestgreen !important;
+}
+
+    .a-btn-success:hover {
+        color: white !important;
+    }
+
+@media screen and (max-width:500px) {
+    .a-image {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:800px) {
+    .a-image {
+        width: 50%;
+    }
+}

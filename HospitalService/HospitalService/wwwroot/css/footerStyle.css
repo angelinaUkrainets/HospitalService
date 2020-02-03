@@ -1,0 +1,92 @@
+﻿footer {
+    background-color: rgb(54, 48, 48);
+    flex-shrink: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
+
+.bottom-div {
+    border-top: 2px solid lightyellow;
+    text-align: center;
+}
+
+.h3-header {
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 45px;
+}
+
+h3:hover {
+    color: aquamarine;
+    cursor: grab;
+}
+
+.a-footer {
+    color: white;
+    cursor: grab;
+}
+
+    .a-footer:hover {
+        color: seagreen;
+        text-decoration: underline;
+        cursor: grab;
+    }
+
+li:hover {
+    color: seagreen;
+    text-decoration: underline;
+    cursor: grab;
+}
+
+i:hover {
+    color: seagreen;
+    cursor: grab;
+}
+
+.center-div {
+    margin-right: 80px;
+}
+
+@media screen and (min-width:450px) and (max-width:500px) {
+    .center-div {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .center-div {
+        margin-left: 50px;
+    }
+
+    .input-search {
+        margin-left: 40px;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:590px) {
+    .center-div {
+        margin-left: 50px;
+    }
+
+    .links-div {
+        margin-left: 50px;
+    }
+
+    .input-search {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (min-width:590px) and (max-width:810px) {
+    .center-div {
+        margin-left: 50px;
+    }
+
+    .input-search {
+        margin-left: 50px;
+    }
+}
