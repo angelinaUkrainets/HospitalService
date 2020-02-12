@@ -8,21 +8,24 @@ using System.Threading.Tasks;
 
 namespace HospitalService.Data.Models
 {
-    public class UserProfile
+    public class DoctorProfile
     {
         [Key, ForeignKey("User")] public string Id { get; set; }
         [Required] public string FirstName { get; set; }
         [Required] public string LastName { get; set; }
-
-        /// <summary>
-        /// Фото користувача
-        /// </summary>
         [Required] public string Image { get; set; }
+        [Required] public string Experience { get; set; }
+        public DateTime BeginTime { get; set; }
+        public DateTime EndTime { get; set; }
 
-        /// <summary>
-        /// Дата реєстрації
-        /// </summary>
-        public DateTime RegistrationDate { get; set; }
+        [ForeignKey("Specializations")]
+        public int SpecializationId { get; set; }
+        public virtual Specialization Specializations { get; set; }
+
+        [ForeignKey("Hospitals")]
+        public int HospitalId { get; set; }
+        public virtual Hospital Hospitals { get; set; }
+
         public virtual DbUser User { get; set; }
     }
 }

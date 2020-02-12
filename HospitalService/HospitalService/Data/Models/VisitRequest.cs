@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace HospitalService.Data.Models
 {
-    public class Sickness
+    public class VisitRequest
     {
         [Key] public int Id { get; set; }
-        [Required] public string Name { get; set; }
-        [Required] public DateTime Duration { get; set; }
-
-        [ForeignKey("Symptoms")]
-        public int SymptomId { get; set; }
-        public virtual Symptom Symptoms { get; set; }
+        [Required] public DateTime Time { get; set; }
+        
+        [ForeignKey("DoctorProfiles")]
+        public int DoctorId { get; set; }
+        public virtual DoctorProfile DoctorProfiles { get; set; }
     }
 }
