@@ -53,7 +53,8 @@
     }
 
         .header div span {
-            color: #5379fa !important;
+            color: black !important;
+            font-weight:500!important;
         }
 
 .login {
