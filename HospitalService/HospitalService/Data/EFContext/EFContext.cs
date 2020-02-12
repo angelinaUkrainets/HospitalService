@@ -22,6 +22,10 @@ namespace HospitalService.Data.EFContext
         public virtual DbSet<Symptom> Symptoms { get; set; }
         public virtual DbSet<Specialization> Specializations { get; set; }
         public virtual DbSet<DoctorProfile> DoctorProfiles { get; set; }
+        public virtual DbSet<PatientProfile> PatientProfiles { get; set; }
+        public virtual DbSet<VisitRequest> VisitRequests { get; set; }
+
+
 
 
         protected override void OnModelCreating(ModelBuilder builder)

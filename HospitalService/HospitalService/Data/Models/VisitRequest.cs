@@ -13,7 +13,7 @@ namespace HospitalService.Data.Models
         [Required] public DateTime Time { get; set; }
         
         [ForeignKey("DoctorProfiles")]
-        public int DoctorId { get; set; }
+        public string DoctorId { get; set; }
         public virtual DoctorProfile DoctorProfiles { get; set; }
     }
 }
