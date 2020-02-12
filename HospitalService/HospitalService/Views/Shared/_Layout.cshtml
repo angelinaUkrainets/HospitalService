@@ -30,20 +30,27 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Hotels</a>
-                <a class="nav-item nav-link" href="#">Tours</a>
-                <!--<a class="nav-item nav-link" href="pages/about-us-page.html">About Us</a>-->
-                <a class="nav-item nav-link" href="#">Sign in</a>
-                <a class="nav-item nav-link" href="#">Register</a>
-            </div>
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="">All Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="Benzin">Benzin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="Electro">Electro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login" >Sign in</a>
+                    </li>
+                </ul>
+             
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
         </div>
 
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </nav>
 
     <partial name="_CookieConsentPartial" />
