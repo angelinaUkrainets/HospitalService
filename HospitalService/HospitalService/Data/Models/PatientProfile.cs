@@ -12,6 +12,7 @@ namespace HospitalService.Data.Models
         [Key, ForeignKey("User")] public string Id { get; set; }
         [Required] public string FirstName { get; set; }
         [Required] public string LastName { get; set; }
+        [Required] public string Login { get; set; }
         [Required] public string Image { get; set; }
         [Required] public DateTime DateOfBirth { get; set; }
         public string TypeBlood { get; set; }

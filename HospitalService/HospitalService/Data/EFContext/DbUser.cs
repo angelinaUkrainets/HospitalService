@@ -10,6 +10,8 @@ namespace HospitalService.Data.EFContext
     public class DbUser : IdentityUser<string>
     {
         public ICollection<DbUserRole> UserRoles { get; set; }
-        public virtual DoctorProfile UserProfile { get; set; }
+        public virtual DoctorProfile DocProfile { get; set; }
+        public virtual PatientProfile UserProfile { get; set; }
+        public virtual AdminProfile Admin { get; set; }
     }
 }
