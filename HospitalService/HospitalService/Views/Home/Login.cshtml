@@ -1,10 +1,9 @@
-﻿@{
-    Layout = "_Layout";
-}
-
+﻿@model HospitalService.ViewModels.LoginViewModel
 @{
     ViewData["Title"] = "Login";
 }
+
+
 
 <link href="~/css/loginStyle.css" rel="stylesheet" />
 
@@ -17,6 +16,6 @@
 <div class="login">
     <input type="text" placeholder="username" name="user"><br>
     <input type="password" placeholder="password" name="password"><br>
-    <input type="button" value="Login">
+    <input type="submit" value="Login">
 </div>
 
