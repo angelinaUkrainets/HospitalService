@@ -13,9 +13,12 @@
     <div>Hospital<span>Service</span></div>
 </div>
 <br>
-<div class="login">
-    <input type="text" placeholder="username" name="user"><br>
-    <input type="password" placeholder="password" name="password"><br>
-    <input type="submit" value="Login">
-</div>
+<form method="post" asp-controller="Home" asp-action="Login">
+    <div class="login">
+        <input type="text" placeholder="username" name="user"><br>
+        <input type="password" placeholder="password" name="password"><br>
+        <input type="submit" value="Login">
+        <input type="button" value="Register" />
+    </div>
+</form>
 
