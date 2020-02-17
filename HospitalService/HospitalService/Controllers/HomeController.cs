@@ -12,6 +12,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using HospitalService.Data.Models;
 
 namespace HospitalService.Controllers
 {
@@ -36,6 +37,56 @@ namespace HospitalService.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            var roleName = "Patient";
+
+            if (ModelState.IsValid)
+            {
+                PatientProfile patient = new PatientProfile()
+                {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Login = model.Login,
+                    Image = model.Image,
+                    DateOfBirth = model.TimeOfBirth
+                };
+
+                DbUser dbUser = new DbUser()
+                {
+                    Email = model.Email,
+                    UserName = model.Email,
+                    UserProfile = patient
+                };
+
+                var result = await _userManager.CreateAsync(dbUser, model.Password);
+                result = _userManager.AddToRoleAsync(dbUser, roleName).Result;
+
+                if (result.Succeeded)
+                {
+                    // установка куки
+                    await _signInManager.SignInAsync(dbUser, false);
+                    return RedirectToAction("Login", "Home");
+                }
+                else 
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+            }
+
+            return View(model);
         }
 
         [HttpGet]

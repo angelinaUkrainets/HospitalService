@@ -73,11 +73,16 @@ namespace HospitalService
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc(routes =>
+            
+        
+           SeedDb.SeedData(app.ApplicationServices, env, this.Configuration);
+
+
+        app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Login}/{id?}");
             });
         }
     }

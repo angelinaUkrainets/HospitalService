@@ -3,5 +3,23 @@
     ViewData["Title"] = "Register";
 }
 
-<h2>Register</h2>
+<link href="~/css/registerStyle.css" rel="stylesheet" />
 
+<div class="body"></div>
+<div class="grad"></div>
+<div class="header">
+    <div>Hospital<span>Service</span></div>
+</div>
+<br>
+<form method="post" asp-controller="Home" asp-action="Register">
+    <div class="login">
+        <input type="text" placeholder="First Name"><br>
+        <input type="text" placeholder="Last Name"><br>
+        <input type="file" style="width:50px" id="img" name="img" accept="image/*" placeholder="Image">
+        <input type="email" placeholder="Email"><br>
+        <input type="datetime" placeholder="Date of Birth"><br>
+        <input type="password" placeholder="Password"><br>
+        <input type="password" placeholder="Password Confirm"><br>
+        <input type="submit" class="btnConfirm" value="Register" />
+    </div>
+</form>

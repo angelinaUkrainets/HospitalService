@@ -59,7 +59,7 @@
 
 .login {
     position: absolute;
-    top: calc(50% - 140px);
+    top: calc(50% - 180px);
     left: calc(50% - 50px);
     height: 150px;
     width: 350px;
@@ -67,7 +67,12 @@
     z-index: 2;
 }
 
-    .login input[type=text] {
+.login input{
+    width:250px!important;
+    height:30px!important;
+}
+
+    .login input {
         width: 250px;
         height: 30px;
         background: transparent;
@@ -80,7 +85,7 @@
         padding: 4px;
     }
 
-    .login input[type=password] {
+    .login input {
         width: 250px;
         height: 30px;
         background: transparent;
@@ -94,10 +99,10 @@
         margin-top: 10px;
     }
 
-.btnConfirm {
-    width: 250px;
-    height: 35px;
-    background: #fff;
+.login input[type=submit] {
+    width: 250px!important;
+    height: 40px!important;
+    background: #fff!important;
     border: 1px solid #fff;
     cursor: pointer;
     border-radius: 2px;
@@ -109,20 +114,20 @@
     margin-top: 10px;
 }
 
-    .btnConfirm:hover {
-        opacity: 0.8;
-    }
+.login input[type=submit]:hover {
+    opacity: 0.8;
+}
 
-    .btnConfirm:active {
+    .login input[type=submit]:active {
         opacity: 0.6;
     }
 
-    .login input[type=text]:focus {
+    .login input:focus {
         outline: none;
         border: 1px solid rgba(255,255,255,0.9);
     }
 
-    .login input[type=password]:focus {
+    .login input:focus {
         outline: none;
         border: 1px solid rgba(255,255,255,0.9);
     }
