@@ -7,6 +7,24 @@
     <script src="https://kit.fontawesome.com/4f0aa3da53.js" crossorigin="anonymous"></script>
     <title>@ViewData["Title"] - HospitalService</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Arbutus+Slab|Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="~/css/aos.css">
+
+    <link rel="stylesheet" href="~/css/style.css">
+
     @*<environment include="Development">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
             <link rel="stylesheet" href="~/css/site.css" />
@@ -17,122 +35,104 @@
                   asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
             <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         </environment>*@
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link href="~/css/footerStyle.css" rel="stylesheet" />
-    <link href="~/css/navStyle.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">*@
+
+    @*<link rel="stylesheet" href="~/css/site.css" />*@
+    @*<link href="~/css/footerStyle.css" rel="stylesheet" />*@
+    @*<link href="~/css/navStyle.css" rel="stylesheet" />*@
 </head>
 <body>
-    @*<nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <h1 class="navbar-brand" href="#">Hospital Service</h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="">All Cars</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="Benzin">Benzin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="Electro">Electro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Sign in</a>
-                    </li>
-                </ul>
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-                <a class="nav-link text-dark" asp-controller="Home" asp-action="Login">
-                    Login
-                </a>
-                <form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="Logout">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                        Logout
-                    </button>
-                </form>
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-center">
+
+                <div class="">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                            <li><a href="#home-section" class="nav-link">Home</a></li>
+                            <li><a href="#services-section" class="nav-link">Services</a></li>
+                            <li><a href="#about-section" class="nav-link">About</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class=" text-center mx-5">
+                    <h1 class="m-0 site-logo"><a href="index.html">Me.</a></h1>
+                </div>
+
+                <div class="text-left">
+
+                    <nav class="site-navigation position-relative" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                            <li><a href="#portfolio-section" class="nav-link">Portfolio</a></li>
+                            <li><a href="#clients-section" class="nav-link">Client</a></li>
+                            <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                        </ul>
+                    </nav>
+
+
+                    <div class="d-inline-block d-lg-none" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+
+                </div>
+
             </div>
-
-        </nav>*@
-
-    @<nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Transparent to Solid Nav</a>
-            </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Another Link</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
         </div>
-    </nav>
+
+    </header>
 
     @*<partial name="_CookieConsentPartial" />*@
 
 
     @RenderBody()
-    <hr />
-    <footer>
-        <div class="d-flex justify-content-center">
-            <div class="row">
-                <div style="width:300px; margin-top:20px;" class="center-div">
-                    <h3 class="h3-header">Hospital Service</h3>
-                    <p>
-                        Travel Agency is functioal service for order tickets.
-                        You can choose country, town/city and hotel for unforgettable holidays.
-                    </p>
-                    <div class="row">
-                        <i class="fab fa-instagram"></i>
-                        &emsp;
-                        <i class="fab fa-facebook-f"></i>
-                        &emsp;
-                        <i class="fab fa-pinterest"></i>
+    @*<hr />
+        <footer>
+            <div class="d-flex justify-content-center">
+                <div class="row">
+                    <div style="width:300px; margin-top:20px;" class="center-div">
+                        <h3 class="h3-header">Hospital Service</h3>
+                        <p>
+                            Travel Agency is functioal service for order tickets.
+                            You can choose country, town/city and hotel for unforgettable holidays.
+                        </p>
+                        <div class="row">
+                            <i class="fab fa-instagram"></i>
+                            &emsp;
+                            <i class="fab fa-facebook-f"></i>
+                            &emsp;
+                            <i class="fab fa-pinterest"></i>
+                        </div>
+                    </div>
+                    <div class="center-div" style="margin-top:20px;">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li>Home</li>
+                            <li>Discounts</li>
+                            <li>Hotels</li>
+                            <li>Popular</li>
+                            <li>Sign in</li>
+                            <li>Register</li>
+                        </ul>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <form>
+                            <fieldset>
+                                <div class="form-group">
+                                    <input type="text" style="width:200px" id="disabledTextInput" class="form-control" placeholder="Search">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
-                <div class="center-div" style="margin-top:20px;">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li>Home</li>
-                        <li>Discounts</li>
-                        <li>Hotels</li>
-                        <li>Popular</li>
-                        <li>Sign in</li>
-                        <li>Register</li>
-                    </ul>
-                </div>
-                <div style="margin-top:20px;">
-                    <form>
-                        <fieldset>
-                            <div class="form-group">
-                                <input type="text" style="width:200px" id="disabledTextInput" class="form-control" placeholder="Search">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </fieldset>
-                    </form>
-                </div>
             </div>
-        </div>
-        <div class="bottom-div">© 2019 Anglina Ukrainets</div>
-    </footer>
+            <div class="bottom-div">© 2019 Anglina Ukrainets</div>
+        </footer>*@
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    @*<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>*@
 
     @*<environment include="Development">
                 <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -156,6 +156,82 @@
             </script>
             <script src="~/js/site.min.js" asp-append-version="true"></script>
         </environment>*@
+
+
+    <footer class="site-section bg-light footer">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-3">
+                    <h3 class="footer-title">Me Address</h3>
+                    <p><span class="d-inline-block d-md-block">203 Fake St. Mountain View,</span> San Francisco, California, USA</p>
+                </div>
+                <div class="col-md-5 mx-auto">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h3 class="footer-title">Services</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Web App</a></li>
+                                <li><a href="#">Graphic</a></li>
+                                <li><a href="#">Branding</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <h3 class="footer-title">Resources</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Web App</a></li>
+                                <li><a href="#">Graphic</a></li>
+                                <li><a href="#">Branding</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <h3 class="footer-title">Links</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Web App</a></li>
+                                <li><a href="#">Graphic</a></li>
+                                <li><a href="#">Branding</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="footer-title">Follow Me</h3>
+                    <a href="#" class="social-circle"><span class="icon-twitter"></span></a>
+                    <a href="#" class="social-circle"><span class="icon-facebook"></span></a>
+                    <a href="#" class="social-circle"><span class="icon-instagram"></span></a>
+                    <a href="#" class="social-circle"><span class="icon-dribbble"></span></a>
+                    <a href="#" class="social-circle"><span class="icon-linkedin"></span></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+
+
+    <script src="js/main.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
