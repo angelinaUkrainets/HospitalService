@@ -24,41 +24,62 @@
     <link href="~/css/navStyle.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <h1 class="navbar-brand" href="#">Hospital Service</h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="">All Cars</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="Benzin">Benzin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="Electro">Electro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Sign in</a>
-                </li>
-            </ul>
+    @*<nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <h1 class="navbar-brand" href="#">Hospital Service</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="">All Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="Benzin">Benzin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="ListCars" asp-route-category="Electro">Electro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Sign in</a>
+                    </li>
+                </ul>
 
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            <a class="nav-link text-dark" asp-controller="Home" asp-action="Login">
-                Login
-            </a>
-            <form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="Logout">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                    Logout
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <a class="nav-link text-dark" asp-controller="Home" asp-action="Login">
+                    Login
+                </a>
+                <form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="Logout">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        Logout
+                    </button>
+                </form>
+            </div>
+
+        </nav>*@
+
+    @<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-            </form>
+                <a class="navbar-brand" href="#">Transparent to Solid Nav</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Another Link</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
-
     </nav>
 
     @*<partial name="_CookieConsentPartial" />*@
