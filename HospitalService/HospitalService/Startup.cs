@@ -83,6 +83,11 @@ namespace HospitalService
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Login}/{id?}");
+                routes.MapRoute(
+                    name: "doctorCategory",
+                    template: "Doctor/{action}/{specialization?}",
+                    defaults: new { Controller = "Doctor", action = "GetDoctors" }
+                    );
             });
         }
     }

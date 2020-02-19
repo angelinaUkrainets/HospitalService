@@ -12,5 +12,12 @@ namespace HospitalService.Controllers
         {
             return View();
         }
+
+        [Route("Doctor/GetDoctors")]
+        [Route("Doctor/GetDoctors/{specialization}")]
+        public IActionResult GetDoctors(string specialization)
+        {
+            return View();
+        }
     }
 }
