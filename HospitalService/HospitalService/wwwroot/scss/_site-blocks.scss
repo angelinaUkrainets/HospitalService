@@ -42,9 +42,7 @@
 	}
 	.img-face {
 		position: absolute;
-		right: -5%;
 		bottom: 0;
-		z-index: 1;
 		max-width: 950px;
 		@include media-breakpoint-down(md) {
 			right: -25%;
