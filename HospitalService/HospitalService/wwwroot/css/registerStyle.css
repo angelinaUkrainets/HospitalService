@@ -59,7 +59,7 @@
 
 .login {
     position: absolute;
-    top: calc(50% - 180px);
+    top: calc(50% - 200px);
     left: calc(50% - 50px);
     height: 150px;
     width: 350px;
@@ -138,5 +138,9 @@
 
 ::-webkit-input-placeholder {
     color: rgba(255,255,255,0.6);
+}
+
+span{
+    color:white;
 }
 

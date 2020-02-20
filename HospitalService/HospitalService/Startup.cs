@@ -75,7 +75,7 @@ namespace HospitalService
 
             
         
-           SeedDb.SeedData(app.ApplicationServices, env, this.Configuration);
+           //SeedDb.SeedData(app.ApplicationServices, env, this.Configuration);
 
 
         app.UseMvc(routes =>

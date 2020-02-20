@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using HospitalService.Data.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace HospitalService.Controllers
 {
@@ -49,6 +50,8 @@ namespace HospitalService.Controllers
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             var roleName = "Patient";
+            if (model.ImageName == null)
+                model.ImageName = "https://lh3.googleusercontent.com/proxy/6qzjRPsT0aV3JvhRZtWDX6LtMnuy5rCLdyalAVfSJ-e34rnmhyBBjphC1p_uD09z09FLOBY_j-N-51sLEOVBYyRsltSL9x4";
 
             if (ModelState.IsValid)
             {
@@ -57,11 +60,11 @@ namespace HospitalService.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Login = model.Login,
-                    Image = model.Image,
-                    DateOfBirth = model.TimeOfBirth
+                    Image = model.ImageName,
+                    DateOfBirth = Convert.ToDateTime(model.TimeOfBirth)
                 };
 
-                DbUser dbUser = new DbUser()
+                var dbUser = new DbUser()
                 {
                     Email = model.Email,
                     UserName = model.Email,
