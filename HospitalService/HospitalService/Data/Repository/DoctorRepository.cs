@@ -1,5 +1,6 @@
 ﻿using HospitalService.Data.Interfaces;
 using HospitalService.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,7 @@ namespace HospitalService.Data.Repository
             _context = context;
         }
 
-        public IEnumerable<DoctorProfile> GetDoctors => throw new NotImplementedException();
-
-        public IEnumerable<DoctorProfile> GetSpecializationDoctors => throw new NotImplementedException();
+        public IEnumerable<DoctorProfile> GetDoctors => _context.DoctorProfiles.Include(x => x.SpecializationId);
 
         public DoctorProfile Doctor(int Id)
         {

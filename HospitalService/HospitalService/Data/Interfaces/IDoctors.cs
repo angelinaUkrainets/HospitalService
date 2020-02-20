@@ -9,7 +9,6 @@ namespace HospitalService.Data.Interfaces
     public interface IDoctors
     {
         IEnumerable<DoctorProfile> GetDoctors { get; }
-        IEnumerable<DoctorProfile> GetSpecializationDoctors { get; }
         DoctorProfile Doctor(int Id);
     }
 }
