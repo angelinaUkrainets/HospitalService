@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace HospitalService.Data.Models
 {
-    public class AdminProfile:BaseProfile
+    public class BaseProfile
     {
-
+        [Key, ForeignKey("User")] public string Id { get; set; }
+        [Required] public string Login { get; set; }
     }
 }

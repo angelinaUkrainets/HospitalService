@@ -68,7 +68,7 @@ namespace HospitalService.Controllers
                 {
                     Email = model.Email,
                     UserName = model.Email,
-                    UserProfile = patient
+                    Profile = patient
                 };
 
                 var result = await _userManager.CreateAsync(dbUser, model.Password);
