@@ -16,11 +16,11 @@ namespace HospitalService.Data.Models
         public string TypeBlood { get; set; }
 
         [ForeignKey("Sicknesses")]
-        public int SicknessId { get; set; }
+        public int? SicknessId { get; set; }
         public virtual Sickness Sicknesses { get; set; }
 
         [ForeignKey("VisitRequests")]
-        public int VisitId { get; set; }
+        public int? VisitId { get; set; }
         public virtual VisitRequest VisitRequests { get; set; }
     }
 }

@@ -61,7 +61,9 @@ namespace HospitalService.Controllers
                     LastName = model.LastName,
                     Login = model.Login,
                     Image = model.ImageName,
-                    DateOfBirth = Convert.ToDateTime(model.TimeOfBirth)
+                    DateOfBirth = Convert.ToDateTime(model.TimeOfBirth),
+                    Sicknesses = null,
+                    VisitRequests = null
                 };
 
                 var dbUser = new DbUser()
