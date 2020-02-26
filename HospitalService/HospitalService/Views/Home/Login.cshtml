@@ -17,8 +17,8 @@
     <div class="login">
         <input type="text" placeholder="username" name="user"><br>
         <input type="password" placeholder="password" name="password"><br>
-        <input type="submit" class="btnConfirm" value="Login">
-        <input type="button" class="btnConfirm" value="Register" />
+        <input asp-area="" asp-controller="Common" asp-action="News" type="submit" class="btnConfirm" value="Login">
+        <a asp-area="" asp-controller="Home" asp-action="Register"><input type="button" class="btnConfirm" value="Register" /></a>
         <input type="button" class="btnConfirm" value="Register as Doctor" />
     </div>
 </form>
