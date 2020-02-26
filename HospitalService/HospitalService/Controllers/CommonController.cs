@@ -22,9 +22,7 @@ namespace HospitalService.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Patient")]
-        [Authorize(Roles = "Doctor")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Patient, Doctor, Admin")]
         public IActionResult News()
         {
             return View();
