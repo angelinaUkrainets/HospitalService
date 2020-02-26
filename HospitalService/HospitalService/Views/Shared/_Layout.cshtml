@@ -68,7 +68,12 @@
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <li><a class="nav-link" asp-area="" asp-controller="Doctor" asp-action="GetDoctors" asp-route-category="">Doctors</a></li>
                             <li><a href="#clients-section" class="nav-link">Hospitals</a></li>
-                            <li><a href="#contact-section" class="nav-link">Log Out</a></li>
+                            @*<li><a class="nav-link" asp-controller="Home" asp-action="Logout">Log Out</a></li>*@
+                            <li>
+                                <form asp-controller="Home" asp-action="Logout">
+                                    <button class="btn btn-outline-dark" type="submit">Log Out</button>
+                                </form>
+                            </li>
                         </ul>
                     </nav>
 
