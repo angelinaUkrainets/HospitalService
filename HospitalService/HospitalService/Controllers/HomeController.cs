@@ -182,5 +182,7 @@ namespace HospitalService.Controllers
             //await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Home");
         }
+
+
     }
 }
