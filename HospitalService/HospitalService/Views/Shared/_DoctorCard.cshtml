@@ -1,15 +1,15 @@
 ﻿<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-
-<a class="a-image" data-toggle="modal" data-target="#exampleModalScrollable">
     <div class="card" style="width: 18rem;">
         <img src="@Model.Image" class="card-img-top" alt="...">
         <div class="card-body">
             <h3 class="card-text">@Model.FirstName</h3>
-            <p></p>
+            <h3 class="card-text">@Model.LastName</h3>
+            <p>Specialization : @Model.Type</p>
+            <button class="btn btn-outline-dark" type="submit">See timetable</button>
         </div>
     </div>
-</a>
+
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

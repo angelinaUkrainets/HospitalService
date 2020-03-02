@@ -24,6 +24,7 @@ namespace HospitalService.Data.EFContext
         public virtual DbSet<DoctorProfile> DoctorProfiles { get; set; }
         public virtual DbSet<PatientProfile> PatientProfiles { get; set; }
         public virtual DbSet<VisitRequest> VisitRequests { get; set; }
+        public virtual DbSet<BaseProfile> BaseProfiles { get; set; }
 
 
 
