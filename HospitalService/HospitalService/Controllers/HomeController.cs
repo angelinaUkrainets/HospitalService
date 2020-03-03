@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using HospitalService.Data.Models;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace HospitalService.Controllers
 {
@@ -125,10 +126,16 @@ namespace HospitalService.Controllers
             }
 
             await _signInManager.SignInAsync(user, isPersistent: false);
+            await Authenticate(model.Email);
 
-           
-                await Authenticate(model.Email);
-                return RedirectToAction("News", "Common");
+            var userInfo = new UserInfo()
+            {
+                Id = user.Id,
+                Email = user.Email
+            };
+            HttpContext.Session.SetString("UserInfo", JsonConvert.SerializeObject(userInfo));
+
+            return RedirectToAction("News", "Common");
         }
 
         public IActionResult About()

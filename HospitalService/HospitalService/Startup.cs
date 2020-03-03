@@ -50,6 +50,8 @@ namespace HospitalService
                     options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Home/Login");
                 });
 
+            services.AddMemoryCache();
+            services.AddSession();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -71,6 +73,7 @@ namespace HospitalService
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
             //app.UseCookiePolicy();
 
             

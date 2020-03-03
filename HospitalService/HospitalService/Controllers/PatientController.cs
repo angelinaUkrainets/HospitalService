@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HospitalService.Data.EFContext;
+using HospitalService.Models;
 using HospitalService.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace HospitalService.Controllers
 {
@@ -23,10 +26,18 @@ namespace HospitalService.Controllers
         [HttpGet]
         public IActionResult YourProfile()
         {
-            YourProfileViewModel model = new YourProfileViewModel()
+            var info = HttpContext.Session.GetString("UserInfo");
+            if (info != null)
             {
-            
-            };
+                var result = JsonConvert.DeserializeObject<UserInfo>(info);
+
+                var user = _context.Users.FirstOrDefault(u => u.Id == result.Id);
+
+                YourProfileViewModel model = new YourProfileViewModel()
+                {
+                   //Login = user.
+                };
+            }
 
             return View();
         }
