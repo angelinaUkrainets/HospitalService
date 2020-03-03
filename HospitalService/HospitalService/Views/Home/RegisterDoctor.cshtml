@@ -1,0 +1,42 @@
+﻿@model HospitalService.ViewModels.RegisterViewModel
+@{
+    Layout = null;
+}
+
+<link href="~/css/registerStyle.css" rel="stylesheet" />
+
+<div class="body"></div>
+<div class="grad"></div>
+<div class="header">
+    <div>Hospital<span>Service</span></div>
+</div>
+<br>
+<form method="post" asp-controller="Home" asp-action="Register" enctype="multipart/form-data">
+    <div class="login">
+        <input asp-for="FirstName" type="text" placeholder="First Name"><br>
+        <span asp-validation-for="FirstName"></span>
+
+        <input asp-for="LastName" type="text" placeholder="Last Name"><br>
+        <span asp-validation-for="LastName"></span>
+
+        <input asp-for="Login" type="text" placeholder="Login"><br>
+        <span asp-validation-for="Login"></span>
+
+        <input asp-for="ImageName" type="file" style="width:50px" accept="image/*" placeholder="Image">
+        <span asp-validation-for="ImageName"></span>
+
+        <input asp-for="Email" type="email" placeholder="Email"><br>
+        <span asp-validation-for="Email"></span>
+
+        <input asp-for="TimeOfBirth" type="datetime" placeholder="Date of Birth"><br>
+        <span asp-validation-for="TimeOfBirth"></span>
+
+        <input asp-for="Password" type="password" placeholder="Password"><br>
+        <span asp-validation-for="Password"></span>
+
+        <input asp-for="PasswordConfirm" type="password" placeholder="Password Confirm"><br>
+        <span asp-validation-for="PasswordConfirm"></span>
+
+        <input type="submit" class="btnConfirm" value="Register" />
+    </div>
+</form>
