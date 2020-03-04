@@ -3,72 +3,31 @@
     Layout = "_Layout";
 }
 
-<link href="https://fonts.googleapis.com/css?family=Arbutus+Slab|Open+Sans:300,400,700" rel="stylesheet">
-<link rel="stylesheet" href="fonts/icomoon/style.css">
-<link href="~/css/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="~/css/jquery-ui.css">
-<link rel="stylesheet" href="~/css/owl.carousel.min.css">
-<link rel="stylesheet" href="~/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-<link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
-
-<link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
-
-<link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
-
-<link rel="stylesheet" href="~/css/aos.css">
-
-<link rel="stylesheet" href="~/css/style.css">
-<link rel="stylesheet" href="~/css/YourProfileStyle.css" />
-
-<div class="row head site-blocks-cover overlay bg-light container justify-content-center">
-       <div class="item">
-           <img style="width:100%; margin:10px" src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg" alt="@Model.FirstName">
-       </div>
-    
-        <div class="about-desc">
-            <div class="owl-carousel3">
-                <div class="item">
-                    <h2><span>@Model.FirstName</span><span>@Model.LastName</span></h2>
-                </div>
+<div class="justify-content-center" style="margin-top:90px; margin-left:auto; margin-right:auto">
+    <div class="card mb-3" style="width:75%">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="https://data.whicdn.com/images/338133085/original.jpg?t=1575706413" class="card-img" alt="@Model.FirstName">
             </div>
-            <div class="desc">
-                <div class="rotate">
-                    <h2 class="heading">About</h2>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h4 class="card-title"><span style="color:darkblue">@Model.FirstName</span>@Model.LastName</h4>
+                    <h5>About</h5>
+                    <h6>Login : <span>@Model.Login</span></h6>
+                    <h6>Email : <span>@Model.Email</span></h6>
+                    <h6>Date of birth : <span>@Model.DateBirth</span></h6>
+                    <h6>Type of blood : <span>@Model.TypeBlood</span></h6>
+                    <form asp-controller="Patient" asp-action="ChangeData">
+                        <button class="btn btn-outline-dark" type="submit">Change</button>
+                    </form>
                 </div>
-                <div class="row">
-                    <h4>Login : </h4>
-                    <p>@Model.Login</p>
-                </div>
-                <div class="row">
-                    <h4>Email : </h4>
-                    <p>@Model.Email</p>
-                </div>
-                <div class="row">
-                    <h4>Date of birth : </h4>
-                    <p>@Model.DateBirth</p>
-                </div>
-                <div class="row">
-                    <h4>Type of blood : </h4>
-                    <p>@Model.TypeBlood</p>
-                </div>
-                <a asp-area="" asp-controller="Patient" asp-action="Change" class="btn btn-outline-dark">Change</a>
             </div>
         </div>
+    </div>
 </div>
 
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.fancybox.min.js"></script>
-<script src="js/jquery.sticky.js"></script>
-<script src="js/isotope.pkgd.min.js"></script>
-
-
-<script src="js/main.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
