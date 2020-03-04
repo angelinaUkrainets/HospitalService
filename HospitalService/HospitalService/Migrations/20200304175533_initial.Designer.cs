@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalService.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20200225183203_m1")]
-    partial class m1
+    [Migration("20200304175533_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -76,8 +76,6 @@ namespace HospitalService.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
-                    b.Property<string>("ProfileId");
-
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
@@ -95,8 +93,6 @@ namespace HospitalService.Migrations
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("ProfileId");
-
                     b.ToTable("AspNetUsers");
                 });
 
@@ -113,22 +109,52 @@ namespace HospitalService.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("HospitalService.Data.Models.BaseProfile", b =>
+            modelBuilder.Entity("HospitalService.Data.Models.AdminProfile", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
+                    b.Property<string>("Id");
 
                     b.Property<string>("Login")
                         .IsRequired();
 
                     b.HasKey("Id");
 
-                    b.ToTable("BaseProfile");
+                    b.ToTable("AdminProfiles");
+                });
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("BaseProfile");
+            modelBuilder.Entity("HospitalService.Data.Models.DoctorProfile", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<DateTime>("BeginTime");
+
+                    b.Property<DateTime>("EndTime");
+
+                    b.Property<string>("Experience")
+                        .IsRequired();
+
+                    b.Property<string>("FirstName")
+                        .IsRequired();
+
+                    b.Property<int>("HospitalId");
+
+                    b.Property<string>("Image")
+                        .IsRequired();
+
+                    b.Property<string>("LastName")
+                        .IsRequired();
+
+                    b.Property<string>("Login")
+                        .IsRequired();
+
+                    b.Property<int>("SpecializationId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HospitalId");
+
+                    b.HasIndex("SpecializationId");
+
+                    b.ToTable("DoctorProfiles");
                 });
 
             modelBuilder.Entity("HospitalService.Data.Models.Hospital", b =>
@@ -146,6 +172,39 @@ namespace HospitalService.Migrations
                     b.HasIndex("RegionId");
 
                     b.ToTable("Hospitals");
+                });
+
+            modelBuilder.Entity("HospitalService.Data.Models.PatientProfile", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<DateTime>("DateOfBirth");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired();
+
+                    b.Property<string>("Image")
+                        .IsRequired();
+
+                    b.Property<string>("LastName")
+                        .IsRequired();
+
+                    b.Property<string>("Login")
+                        .IsRequired();
+
+                    b.Property<int?>("SicknessId");
+
+                    b.Property<string>("TypeBlood");
+
+                    b.Property<int?>("VisitId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SicknessId");
+
+                    b.HasIndex("VisitId");
+
+                    b.ToTable("PatientProfiles");
                 });
 
             modelBuilder.Entity("HospitalService.Data.Models.Region", b =>
@@ -307,83 +366,6 @@ namespace HospitalService.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("HospitalService.Data.Models.DoctorProfile", b =>
-                {
-                    b.HasBaseType("HospitalService.Data.Models.BaseProfile");
-
-                    b.Property<DateTime>("BeginTime");
-
-                    b.Property<DateTime>("EndTime");
-
-                    b.Property<string>("Experience")
-                        .IsRequired();
-
-                    b.Property<string>("FirstName")
-                        .IsRequired();
-
-                    b.Property<int>("HospitalId");
-
-                    b.Property<string>("Image")
-                        .IsRequired();
-
-                    b.Property<string>("LastName")
-                        .IsRequired();
-
-                    b.Property<int>("SpecializationId");
-
-                    b.Property<string>("UserId");
-
-                    b.HasIndex("HospitalId");
-
-                    b.HasIndex("SpecializationId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("DoctorProfile");
-
-                    b.HasDiscriminator().HasValue("DoctorProfile");
-                });
-
-            modelBuilder.Entity("HospitalService.Data.Models.PatientProfile", b =>
-                {
-                    b.HasBaseType("HospitalService.Data.Models.BaseProfile");
-
-                    b.Property<DateTime>("DateOfBirth");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnName("PatientProfile_FirstName");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnName("PatientProfile_Image");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnName("PatientProfile_LastName");
-
-                    b.Property<int?>("SicknessId");
-
-                    b.Property<string>("TypeBlood");
-
-                    b.Property<int?>("VisitId");
-
-                    b.HasIndex("SicknessId");
-
-                    b.HasIndex("VisitId");
-
-                    b.ToTable("PatientProfile");
-
-                    b.HasDiscriminator().HasValue("PatientProfile");
-                });
-
-            modelBuilder.Entity("HospitalService.Data.EFContext.DbUser", b =>
-                {
-                    b.HasOne("HospitalService.Data.Models.BaseProfile", "Profile")
-                        .WithMany()
-                        .HasForeignKey("ProfileId");
-                });
-
             modelBuilder.Entity("HospitalService.Data.EFContext.DbUserRole", b =>
                 {
                     b.HasOne("HospitalService.Data.EFContext.DbRole", "Role")
@@ -397,12 +379,54 @@ namespace HospitalService.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("HospitalService.Data.Models.AdminProfile", b =>
+                {
+                    b.HasOne("HospitalService.Data.EFContext.DbUser", "User")
+                        .WithOne("AdminProfiles")
+                        .HasForeignKey("HospitalService.Data.Models.AdminProfile", "Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("HospitalService.Data.Models.DoctorProfile", b =>
+                {
+                    b.HasOne("HospitalService.Data.Models.Hospital", "Hospitals")
+                        .WithMany()
+                        .HasForeignKey("HospitalId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HospitalService.Data.EFContext.DbUser", "User")
+                        .WithOne("DoctorProfiles")
+                        .HasForeignKey("HospitalService.Data.Models.DoctorProfile", "Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HospitalService.Data.Models.Specialization", "Specializations")
+                        .WithMany()
+                        .HasForeignKey("SpecializationId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("HospitalService.Data.Models.Hospital", b =>
                 {
                     b.HasOne("HospitalService.Data.Models.Region", "Regions")
                         .WithMany()
                         .HasForeignKey("RegionId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("HospitalService.Data.Models.PatientProfile", b =>
+                {
+                    b.HasOne("HospitalService.Data.EFContext.DbUser", "User")
+                        .WithOne("PatientProfiles")
+                        .HasForeignKey("HospitalService.Data.Models.PatientProfile", "Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HospitalService.Data.Models.Sickness", "Sicknesses")
+                        .WithMany()
+                        .HasForeignKey("SicknessId");
+
+                    b.HasOne("HospitalService.Data.Models.VisitRequest", "VisitRequests")
+                        .WithMany()
+                        .HasForeignKey("VisitId");
                 });
 
             modelBuilder.Entity("HospitalService.Data.Models.Sickness", b =>
@@ -450,34 +474,6 @@ namespace HospitalService.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("HospitalService.Data.Models.DoctorProfile", b =>
-                {
-                    b.HasOne("HospitalService.Data.Models.Hospital", "Hospitals")
-                        .WithMany()
-                        .HasForeignKey("HospitalId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("HospitalService.Data.Models.Specialization", "Specializations")
-                        .WithMany()
-                        .HasForeignKey("SpecializationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("HospitalService.Data.EFContext.DbUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("HospitalService.Data.Models.PatientProfile", b =>
-                {
-                    b.HasOne("HospitalService.Data.Models.Sickness", "Sicknesses")
-                        .WithMany()
-                        .HasForeignKey("SicknessId");
-
-                    b.HasOne("HospitalService.Data.Models.VisitRequest", "VisitRequests")
-                        .WithMany()
-                        .HasForeignKey("VisitId");
                 });
 #pragma warning restore 612, 618
         }

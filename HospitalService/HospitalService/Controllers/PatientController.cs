@@ -7,6 +7,7 @@ using HospitalService.Models;
 using HospitalService.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace HospitalService.Controllers
@@ -31,12 +32,19 @@ namespace HospitalService.Controllers
             {
                 var result = JsonConvert.DeserializeObject<UserInfo>(info);
 
-                var user = _context.Users.FirstOrDefault(u => u.Id == result.Id);
-
+                var user = _context.PatientProfiles.FirstOrDefault(x => x.Id == result.Id);
+                
                 YourProfileViewModel model = new YourProfileViewModel()
                 {
-                   //Login = user.
+                    Login = user.Login,
+                    DateBirth = user.DateOfBirth.ToString("dd/MM/yyyy"),
+                    Email = result.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    ImagePath = user.Image,
+                    TypeBlood = user?.TypeBlood
                 };
+                return View(model);
             }
 
             return View();

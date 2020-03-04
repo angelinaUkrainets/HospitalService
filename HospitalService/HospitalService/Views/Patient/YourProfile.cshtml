@@ -10,33 +10,23 @@
 <link rel="stylesheet" href="~/css/owl.carousel.min.css">
 <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
-<link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
-<link rel="stylesheet" href="~/css/aos.css">
-<link rel="stylesheet" href="~/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
-<!-- Animate.css -->
-<link rel="stylesheet" href="css/animate.css">
-<!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="css/icomoon.css">
-<!-- Bootstrap  -->
-<link rel="stylesheet" href="css/bootstrap.css">
-<!-- Owl Carousel -->
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<!-- Magnific Popup -->
-<link rel="stylesheet" href="css/magnific-popup.css">
 
-<div class="row">
-    <div class="col-md-5 animate-box">
-        <div>
-            <div class="item">
-                <img class="img-responsive about-img" src="@Model.ImagePath" alt="@Model.FirstName">
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-md-push-1 animate-box">
+<link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+
+<link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
+
+<link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+
+<link rel="stylesheet" href="~/css/aos.css">
+
+<link rel="stylesheet" href="~/css/style.css">
+<link rel="stylesheet" href="~/css/YourProfileStyle.css" />
+
+<div class="row head site-blocks-cover overlay bg-light container justify-content-center">
+       <div class="item">
+           <img style="width:100%; margin:10px" src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg" alt="@Model.FirstName">
+       </div>
+    
         <div class="about-desc">
             <div class="owl-carousel3">
                 <div class="item">
@@ -57,7 +47,7 @@
                 </div>
                 <div class="row">
                     <h4>Date of birth : </h4>
-                    <p>@Model.Login</p>
+                    <p>@Model.DateBirth</p>
                 </div>
                 <div class="row">
                     <h4>Type of blood : </h4>
@@ -66,7 +56,6 @@
                 <a asp-area="" asp-controller="Patient" asp-action="Change" class="btn btn-outline-dark">Change</a>
             </div>
         </div>
-    </div>
 </div>
 
 <script src="js/jquery-3.3.1.min.js"></script>
@@ -79,17 +68,7 @@
 <script src="js/jquery.fancybox.min.js"></script>
 <script src="js/jquery.sticky.js"></script>
 <script src="js/isotope.pkgd.min.js"></script>
+
+
 <script src="js/main.js"></script>
-<script src="js/jquery.min.js"></script>
-<!-- jQuery Easing -->
-<script src="js/jquery.easing.1.3.js"></script>
-<!-- Bootstrap -->
-<script src="js/bootstrap.min.js"></script>
-<!-- Waypoints -->
-<script src="js/jquery.waypoints.min.js"></script>
-<!-- Owl Carousel -->
-<script src="js/owl.carousel.min.js"></script>
-<!-- Magnific Popup -->
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/magnific-popup-options.js"></script>
 
