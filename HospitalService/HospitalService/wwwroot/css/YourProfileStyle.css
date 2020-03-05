@@ -2,8 +2,9 @@
 }
 
 
-.head {
-    position: absolute;
-    top: calc(50% - 35px);
-    left: calc(50% - 300px);
+.main-div {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:lightgray;
 }
