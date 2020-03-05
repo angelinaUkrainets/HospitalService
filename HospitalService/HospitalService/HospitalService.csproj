@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Uploaded\" />
     <Folder Include="Views\Doctor\" />
   </ItemGroup>
 

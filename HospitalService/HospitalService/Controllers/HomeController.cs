@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Authorization;
 using HospitalService.Data.Models;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace HospitalService.Controllers
 {
@@ -24,16 +26,17 @@ namespace HospitalService.Controllers
         private readonly SignInManager<DbUser> _signInManager;
         private readonly RoleManager<DbRole> _roleManager;
         private readonly EFContext _context;
-
+        private readonly IHostingEnvironment _env;
 
 
         public HomeController(UserManager<DbUser> userManager, SignInManager<DbUser> signInManager,
-            RoleManager<DbRole> roleManager, EFContext context)
+            RoleManager<DbRole> roleManager, EFContext context, IHostingEnvironment env)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _context = context;
+            _env = env;
         }
         [Authorize(Roles ="User")]
         public IActionResult Index()
@@ -48,20 +51,29 @@ namespace HospitalService.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(RegisterViewModel model, IFormFile uploadedFile)
         {
-            var roleName = "Patient";
-            if (model.ImageName == null)
-                model.ImageName = "https://lh3.googleusercontent.com/proxy/6qzjRPsT0aV3JvhRZtWDX6LtMnuy5rCLdyalAVfSJ-e34rnmhyBBjphC1p_uD09z09FLOBY_j-N-51sLEOVBYyRsltSL9x4";
-
             if (ModelState.IsValid)
             {
+                var roleName = "Patient";
+                if (uploadedFile == null && uploadedFile.Length > 0)
+                    return RedirectToAction("Register");
+
+                var folderServerPath = _env.ContentRootPath;
+                var folderName = "Uploaded";
+                var fileName = Guid.NewGuid().ToString() + ".jpg";
+                var savefile = Path.Combine(folderServerPath, folderName, fileName);
+                using (var stream = System.IO.File.Create(savefile))
+                {
+                    await uploadedFile.CopyToAsync(stream);
+                }
+
                 PatientProfile patient = new PatientProfile()
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Login = model.Login,
-                    Image = model.ImageName,
+                    Image = fileName,
                     DateOfBirth = Convert.ToDateTime(model.TimeOfBirth),
                     Sicknesses = null,
                     VisitRequests = null

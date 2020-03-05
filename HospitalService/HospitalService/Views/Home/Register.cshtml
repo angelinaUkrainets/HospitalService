@@ -22,7 +22,7 @@
         <input asp-for="Login" type="text" placeholder="Login"><br>
         <span asp-validation-for="Login"></span>
 
-        <input asp-for="ImageName" type="file" style="width:50px" accept="image/*" placeholder="Image">
+        <input asp-for="ImageName" type="file" style="width:50px" name="uploadedFile" placeholder="Image">
         <span asp-validation-for="ImageName"></span>
 
         <input asp-for="Email" type="email" placeholder="Email"><br>

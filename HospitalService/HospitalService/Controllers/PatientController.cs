@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using HospitalService.Data.EFContext;
 using HospitalService.Models;
 using HospitalService.ViewModels;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,9 +16,11 @@ namespace HospitalService.Controllers
     public class PatientController : Controller
     {
         private readonly EFContext _context;
-        public PatientController(EFContext context)
+        private readonly IHostingEnvironment _env;
+        public PatientController(EFContext context, IHostingEnvironment env)
         {
             _context = context;
+            _env = env;
         }
         public IActionResult Index()
         {
