@@ -26,14 +26,8 @@ namespace HospitalService.ViewModels
 
         [Required] public string Login { get; set; }
 
-        //[Required(ErrorMessage = "Please Upload a Valid Image File. Only jpg format allowed")]
-        //[DataType(DataType.Upload)]
-        //[Display(Name = "Upload Product Image")]
-        //[FileExtensions(Extensions = "jpg")]
-        //public IFormFile Image { get; set; }
 
         public string ImageName { get; set; }
-        //[Required] public string Image { get; set; }
 
         [RegularExpression
            (@"^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$",

@@ -7,23 +7,10 @@
 <link rel="stylesheet" href="~/css/YourProfileStyle.css" />
 
 <div class="justify-content-center" style="margin-top:90px; margin-left:auto; margin-right:auto">
-    <div class="card mb-3 main-div" style="width:75%">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="https://data.whicdn.com/images/338133085/original.jpg?t=1575706413" class="card-img" alt="@Model.FirstName">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h4 class="card-title"><span style="color:darkblue">@Model.FirstName</span>@Model.LastName</h4>
-                    <h5>About</h5>
-                    <h6>Login : <span>@Model.Login</span></h6>
-                    <h6>Email : <span>@Model.Email</span></h6>
-                    <h6>Date of birth : <span>@Model.TimeOfBirth</span></h6>
-                    <h6>Type of blood : <span>@Model.TypeBlood</span></h6>
-                    <a class="btn btn-outline-dark" asp-controller="Patient" asp-action="ChangeData">Change</a>
-                    
-                </div>
-            </div>
+    <div class="card border-dark mb-3 main-div" style="max-width: 75%; color:transparent!important">
+        <div class="card-body text-dark">
+            <h5 class="card-title">Dark card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
     </div>
 </div>
