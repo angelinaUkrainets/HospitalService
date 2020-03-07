@@ -10,7 +10,7 @@
     <div class="card mb-3 main-div" style="width:75%">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="https://data.whicdn.com/images/338133085/original.jpg?t=1575706413" class="card-img" alt="@Model.FirstName">
+                <img src="@Model.ImagePath" class="card-img" alt="@Model.FirstName">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -18,7 +18,7 @@
                     <h5>About</h5>
                     <h6>Login : <span>@Model.Login</span></h6>
                     <h6>Email : <span>@Model.Email</span></h6>
-                    <h6>Date of birth : <span>@Model.TimeOfBirth</span></h6>
+                    <h6>Date of birth : <span>@Model.DateBirth</span></h6>
                     <h6>Type of blood : <span>@Model.TypeBlood</span></h6>
                     <a class="btn btn-outline-dark" asp-controller="Patient" asp-action="ChangeData">Change</a>
                     

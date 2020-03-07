@@ -9,8 +9,36 @@
 <div class="justify-content-center" style="margin-top:90px; margin-left:auto; margin-right:auto">
     <div class="card border-dark mb-3 main-div" style="max-width: 75%; color:transparent!important">
         <div class="card-body text-dark">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Change Data</h5>
+            <div class="row">
+                <label asp-for="FirstName"></label><br />
+                <input asp-for="FirstName" type="text" placeholder="First Name" value="@Model.FirstName"><br>
+                <span asp-validation-for="FirstName"></span>
+
+                <label asp-for="LastName"></label><br />
+                <input asp-for="LastName" type="text" placeholder="Last Name" value="@Model.LastName"><br>
+                <span asp-validation-for="LastName"></span>
+            </div>
+
+            <div class="row">
+                <label asp-for="Login"></label><br />
+                <input asp-for="Login" type="text" placeholder="Login" value="@Model.Login"><br>
+                <span asp-validation-for="Login"></span>
+
+                <label asp-for="ImagePath"></label><br />
+                <input asp-for="ImagePath" type="file" style="width:50px" name="uploadedFile" placeholder="Image" value="@Model.ImagePath">
+                <span asp-validation-for="ImagePath"></span>
+            </div>
+
+            <div class="row">
+                <label asp-for="Email"></label><br />
+                <input asp-for="Email" type="email" placeholder="Email" value="@Model.Email"><br>
+                <span asp-validation-for="Email"></span>
+
+                <label asp-for="DateBirth"></label><br />
+                <input asp-for="DateBirth" type="datetime" placeholder="Date of Birth" value="@Model.DateBirth"><br>
+                <span asp-validation-for="DateBirth"></span>
+            </div>
         </div>
     </div>
 </div>
