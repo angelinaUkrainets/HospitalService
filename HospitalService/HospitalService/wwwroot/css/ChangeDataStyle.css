@@ -1,0 +1,9 @@
+﻿.main-div-change{
+    height:50%;
+}
+
+input{
+    width:25%;
+    border-color:black;
+    margin:5px;
+}

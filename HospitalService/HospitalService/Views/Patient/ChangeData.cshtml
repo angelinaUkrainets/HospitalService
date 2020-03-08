@@ -5,40 +5,61 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="~/css/YourProfileStyle.css" />
+<link rel="stylesheet" href="~/css/ChangeDataStyle.css" />
 
-<div class="justify-content-center" style="margin-top:90px; margin-left:auto; margin-right:auto">
+<div class="justify-content-center main-div-change" style="margin-top:90px; margin-left:auto; margin-right:auto">
     <div class="card border-dark mb-3 main-div" style="max-width: 75%; color:transparent!important">
         <div class="card-body text-dark">
             <h5 class="card-title">Change Data</h5>
-            <div class="row">
-                <label asp-for="FirstName"></label><br />
-                <input asp-for="FirstName" type="text" placeholder="First Name" value="@Model.FirstName"><br>
-                <span asp-validation-for="FirstName"></span>
+            <form method="post" asp-controller="Patient" asp-action="ChangeData" enctype="multipart/form-data">
+                <div class="row">
+                    <label asp-for="FirstName"></label><br />
+                    <input asp-for="FirstName" type="text" placeholder="First Name" value="@Model.FirstName"><br>
+                    <span asp-validation-for="FirstName"></span>
 
-                <label asp-for="LastName"></label><br />
-                <input asp-for="LastName" type="text" placeholder="Last Name" value="@Model.LastName"><br>
-                <span asp-validation-for="LastName"></span>
-            </div>
+                    <label asp-for="LastName"></label><br />
+                    <input asp-for="LastName" type="text" placeholder="Last Name" value="@Model.LastName"><br>
+                    <span asp-validation-for="LastName"></span>
+                </div>
 
-            <div class="row">
-                <label asp-for="Login"></label><br />
-                <input asp-for="Login" type="text" placeholder="Login" value="@Model.Login"><br>
-                <span asp-validation-for="Login"></span>
+                <div class="row">
+                    <label asp-for="Login"></label><br />
+                    <input asp-for="Login" type="text" placeholder="Login" value="@Model.Login"><br>
+                    <span asp-validation-for="Login"></span>
 
-                <label asp-for="ImagePath"></label><br />
-                <input asp-for="ImagePath" type="file" style="width:50px" name="uploadedFile" placeholder="Image" value="@Model.ImagePath">
-                <span asp-validation-for="ImagePath"></span>
-            </div>
+                    <label asp-for="ImagePath"></label><br />
+                    <input asp-for="ImagePath" type="file" style="width:50px" name="uploadedFile" placeholder="Image" value="@Model.ImagePath">
+                    <span asp-validation-for="ImagePath"></span>
+                </div>
 
-            <div class="row">
-                <label asp-for="Email"></label><br />
-                <input asp-for="Email" type="email" placeholder="Email" value="@Model.Email"><br>
-                <span asp-validation-for="Email"></span>
+                <div class="row">
+                    <label asp-for="Email"></label><br />
+                    <input asp-for="Email" type="email" placeholder="Email" value="@Model.Email"><br>
+                    <span asp-validation-for="Email"></span>
 
-                <label asp-for="DateBirth"></label><br />
-                <input asp-for="DateBirth" type="datetime" placeholder="Date of Birth" value="@Model.DateBirth"><br>
-                <span asp-validation-for="DateBirth"></span>
-            </div>
+                    <label asp-for="DateBirth"></label><br />
+                    <input asp-for="DateBirth" type="datetime" placeholder="Date of Birth" value="@Model.DateBirth"><br>
+                    <span asp-validation-for="DateBirth"></span>
+                </div>
+
+                @*<div class="row">
+                    <label asp-for="Password"></label><br />
+                    <input asp-for="Password" type="password" placeholder="Password" value="@Model.Password"><br>
+                    <span asp-validation-for="Password"></span>
+
+                    <label asp-for="PasswordConfirm"></label><br />
+                    <input asp-for="PasswordConfirm" type="password" placeholder="Confirm Password" value="@Model.PasswordConfirm"><br>
+                    <span asp-validation-for="PasswordConfirm"></span>
+                </div>*@
+
+                <div class="row">
+                    <label asp-for="TypeBlood"></label><br />
+                    <input asp-for="TypeBlood" type="text" placeholder="Type of blood" value="@Model.TypeBlood"><br>
+                    <span asp-validation-for="TypeBlood"></span>
+
+                    <input type="submit" class="btn btn-outline-dark" value="ChangeData" />
+                </div>
+            </form>
         </div>
     </div>
 </div>

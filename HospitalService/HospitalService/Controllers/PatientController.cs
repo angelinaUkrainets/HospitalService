@@ -54,15 +54,39 @@ namespace HospitalService.Controllers
         }
 
         [HttpGet]
-        public IActionResult ChangeData(YourProfileViewModel model)
+        public IActionResult ChangeData()
         {
+            var info = HttpContext.Session.GetString("UserInfo");
+
+            if(info != null)
+            {
+                var result = JsonConvert.DeserializeObject<UserInfo>(info);
+                var user = _context.PatientProfiles.FirstOrDefault(x => x.Id == result.Id);
+
+                YourProfileViewModel model = new YourProfileViewModel()
+                {
+                    Email = result.Email,
+                    Login = user.Login,
+                    LastName = user.LastName,
+                    FirstName = user.FirstName,
+                    DateBirth = user.DateOfBirth.ToString("dd/MM/yyyy"),
+                    TypeBlood = user.TypeBlood,
+                    ImagePath = user.Image
+                };
+                return View(model);
+            }
+
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> ChangeData(YourProfileViewModel model)
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public async Task<IActionResult> ChangeData(YourProfileViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View();
+        }
     }
 }

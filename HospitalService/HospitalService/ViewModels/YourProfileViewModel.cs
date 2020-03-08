@@ -38,18 +38,18 @@ namespace HospitalService.ViewModels
        ErrorMessage = "Please enter a valid time of birth(dd.mm.yyyy)")]
         [Required] public string DateBirth { get; set; }
 
-        [Required, DataType(DataType.Password),
-            Display(Name = "Password")]
-        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,24}$",
-        ErrorMessage = "Please enter a valid password")]
-        public string Password { get; set; }
+        //[DataType(DataType.Password),
+        //    Display(Name = "Password")]
+        //[RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,24}$",
+        //ErrorMessage = "Please enter a valid password")]
+        //public string Password { get; set; }
 
-        [Required, Compare("Password", ErrorMessage = "Passwords don`t match"),
-             DataType(DataType.Password),
-            Display(Name = "Confirm Password")]
-        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,24}$",
-        ErrorMessage = "Please enter a valid password")]
-        public string PasswordConfirm { get; set; }
+        //[Compare("Password", ErrorMessage = "Passwords don`t match"),
+        //     DataType(DataType.Password),
+        //    Display(Name = "Confirm Password")]
+        //[RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,24}$",
+        //ErrorMessage = "Please enter a valid password")]
+        //public string PasswordConfirm { get; set; }
 
         [Display(Name = "Type of blood")]
         public string TypeBlood { get; set; }
