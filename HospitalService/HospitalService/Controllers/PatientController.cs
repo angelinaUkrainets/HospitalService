@@ -82,6 +82,9 @@ namespace HospitalService.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangeData(YourProfileViewModel model)
         {
+            var info = HttpContext.Session.GetString("UserInfo");
+            if (info == null)
+                return View();
             if (ModelState.IsValid)
             {
 
