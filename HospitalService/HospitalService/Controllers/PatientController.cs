@@ -87,7 +87,22 @@ namespace HospitalService.Controllers
                 return View();
             if (ModelState.IsValid)
             {
-
+                var result = JsonConvert.DeserializeObject<UserInfo>(info);
+                var user = _context.PatientProfiles.FirstOrDefault(u => u.Id == result.Id);
+                user.FirstName = model.FirstName;
+                user.DateOfBirth = Convert.ToDateTime(model.DateBirth);
+                user.Image = model.ImagePath;
+                user.LastName = model.LastName;
+                user.Login = model.Login;
+                user.TypeBlood = model.TypeBlood;
+                user.User.Email = model.Email;
+                if(user.Image == null)
+                {
+                    user.Image = "https://rtfm.co.ua/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png";
+                }
+                _context.PatientProfiles.Add(user);
+                _context.SaveChanges();
+                return RedirectToAction("YourProfile");
             }
             return View();
         }
