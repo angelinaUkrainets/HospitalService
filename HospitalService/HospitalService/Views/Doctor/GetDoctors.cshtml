@@ -1,30 +1,28 @@
 ﻿@*@using HospitalService.Data.Models
-@model IEnumerable<DoctorProfile>*@
+    @model IEnumerable<DoctorProfile>*@
+@model HospitalService.ViewModels.DoctorListViewModel
 
 @{
     Layout = "_Layout";
 }
 
 <h3>@ViewBag.Title</h3>
-<div class="row mt-5 mb-2">
-    @{
-        <table>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">NAME</th>
+            <th scope="col">EXPERIENCE</th>
+            <th scope="col">IMAGE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.GetDoctors)
+        {
             <tr>
-                <th>NAME</th>
-                <th>EXPERIENCE</th>
-                <th>SPECIALIZATION</th>
-                <th>IMAGE</th>
+                <td class="name-surname"><span style="color:darkblue">@item.FirstName</span>@item.LastName</td>
+                <td>@item.Experience</td>
+                <td><img src="@item.Image" /></td>
             </tr>
-            @foreach (var item in Model.GetDoctors)
-            {
-                <tr>
-                    <td class="name-surname"><span style="color:darkblue">@item.FirstName</span>@item.LastName</td>
-                    <td>@item.Experience</td>
-                    <td>@item.Specialization.Type</td>
-                    <td><img src="@item.Image" /></td>
-                </tr>
-            }
-        </table>
-    }
-</div>
-
+        }
+    </tbody>
+</table>

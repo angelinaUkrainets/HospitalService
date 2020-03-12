@@ -16,7 +16,7 @@ namespace HospitalService.Data.Repository
             _context = context;
         }
 
-        public IEnumerable<DoctorProfile> GetDoctors => _context.DoctorProfiles.Include(x => x.SpecializationId);
+        public IEnumerable<DoctorProfile> GetDoctors => _context.DoctorProfiles.ToList();
 
         public DoctorProfile Doctor(int Id)
         {
