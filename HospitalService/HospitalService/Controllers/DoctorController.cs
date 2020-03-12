@@ -5,9 +5,13 @@ using System.Threading.Tasks;
 using HospitalService.Data.EFContext;
 using HospitalService.Data.Interfaces;
 using HospitalService.Data.Models;
+using HospitalService.Models;
 using HospitalService.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace HospitalService.Controllers
 {
@@ -16,14 +20,22 @@ namespace HospitalService.Controllers
         private readonly IDoctors _doctors;
         private readonly UserManager<DbUser> _userManager;
         private readonly SignInManager<DbUser> _signInManager;
+        private readonly EFContext _context;
         public DoctorController(IDoctors doctors, UserManager<DbUser> userManager,
-            SignInManager<DbUser> signInManager)
+            SignInManager<DbUser> signInManager, EFContext context)
         {
             _doctors = doctors;
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
         }
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Doctor")]
+        public IActionResult DoctorNews()
         {
             return View();
         }
@@ -104,6 +116,32 @@ namespace HospitalService.Controllers
                 }
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult YourProfileDoctor()
+        {
+            var info = HttpContext.Session.GetString("UserInfo");
+            if (info != null)
+            {
+                var result = JsonConvert.DeserializeObject<UserInfo>(info);
+
+                var user = _context.DoctorProfiles.FirstOrDefault(x => x.Id == result.Id);
+
+                YourProfileDoctorViewModel model = new YourProfileDoctorViewModel()
+                {
+                    Login = user.Login,
+                    Email = result.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    ImageName = user.Image,
+                    Experience = user?.Experience,
+                    SicknessId = user.Specializations.Type
+                };
+                return View(model);
+            }
+
+            return View();
         }
     }
 }

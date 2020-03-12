@@ -144,6 +144,8 @@ namespace HospitalService.Controllers
 
             await _signInManager.SignInAsync(user, isPersistent: false);
             await Authenticate(model.Email);
+            var obj = _context.UserRoles.FirstOrDefault(x => x.UserId == user.Id);
+            string role = obj.Role.Name; 
 
             var userInfo = new UserInfo()
             {
@@ -152,7 +154,10 @@ namespace HospitalService.Controllers
             };
             HttpContext.Session.SetString("UserInfo", JsonConvert.SerializeObject(userInfo));
 
-            return RedirectToAction("News", "Common");
+            if (role == "Doctor")
+                return RedirectToAction("DoctorNews", "Doctor");
+            else
+                return RedirectToAction("News", "Common");
         }
 
         public IActionResult About()
