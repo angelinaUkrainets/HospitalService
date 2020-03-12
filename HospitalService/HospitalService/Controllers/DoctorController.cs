@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HospitalService.Data.EFContext;
 using HospitalService.Data.Interfaces;
 using HospitalService.Data.Models;
 using HospitalService.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalService.Controllers
@@ -12,9 +14,14 @@ namespace HospitalService.Controllers
     public class DoctorController : Controller
     {
         private readonly IDoctors _doctors;
-        public DoctorController(IDoctors doctors)
+        private readonly UserManager<DbUser> _userManager;
+        private readonly SignInManager<DbUser> _signInManager;
+        public DoctorController(IDoctors doctors, UserManager<DbUser> userManager,
+            SignInManager<DbUser> signInManager)
         {
             _doctors = doctors;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
         public IActionResult Index()
         {
@@ -60,8 +67,43 @@ namespace HospitalService.Controllers
             if (ModelState.IsValid)
             {
                 var roleName = "Doctor";
+                if (model.ImageName == null)
+                {
+                    model.ImageName = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR_q1QWy4q604M8nPCoHqq1rR8OCoQ3wx5iRScLfgjO7F1-gwdH";
+                }
+                DoctorProfile doctor = new DoctorProfile()
+                {
+                    Login = model.Login,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Experience = model.Experience,
+                    SpecializationId = Convert.ToInt32(model.SicknessId),
+                    HospitalId = 1,
+                    Image = model.ImageName
+                };
+                var dbUser = new DbUser()
+                {
+                    Email = model.Email,
+                    UserName = model.Email,
+                    DoctorProfiles = doctor
+                };
+                var result = await _userManager.CreateAsync(dbUser, model.Password);
+                result = _userManager.AddToRoleAsync(dbUser, roleName).Result;
+                if (result.Succeeded)
+                {
+                    // установка куки
+                    await _signInManager.SignInAsync(dbUser, false);
+                    return RedirectToAction("Login", "Home");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
             }
-            return View();
+            return View(model);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿@{
+﻿@*@using HospitalService.Data.Models
+@model IEnumerable<DoctorProfile>*@
+
+@{
     Layout = "_Layout";
 }
 
@@ -9,7 +12,7 @@
             <tr>
                 <th>NAME</th>
                 <th>EXPERIENCE</th>
-                <th>Specialization</th>
+                <th>SPECIALIZATION</th>
                 <th>IMAGE</th>
             </tr>
             @foreach (var item in Model.GetDoctors)
