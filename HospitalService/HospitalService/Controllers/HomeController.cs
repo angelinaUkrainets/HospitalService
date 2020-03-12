@@ -56,16 +56,21 @@ namespace HospitalService.Controllers
             if (ModelState.IsValid)
             {
                 var roleName = "Patient";
-                if (uploadedFile == null && uploadedFile.Length > 0)
-                    return RedirectToAction("Register");
+                //if (uploadedFile == null && uploadedFile.Length > 0)
+                //    return RedirectToAction("Register");
 
-                var folderServerPath = _env.ContentRootPath;
-                var folderName = "Uploaded";
-                var fileName = Guid.NewGuid().ToString() + ".jpg";
-                var savefile = Path.Combine(folderServerPath, folderName, fileName);
-                using (var stream = System.IO.File.Create(savefile))
+                //var folderServerPath = _env.ContentRootPath;
+                //var folderName = "Uploaded";
+                //var fileName = Guid.NewGuid().ToString() + ".jpg";
+                //var savefile = Path.Combine(folderServerPath, folderName, fileName);
+                //using (var stream = System.IO.File.Create(savefile))
+                //{
+                //    await uploadedFile.CopyToAsync(stream);
+                //}
+
+                if (model.ImageName == null)
                 {
-                    await uploadedFile.CopyToAsync(stream);
+                    model.ImageName = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR_q1QWy4q604M8nPCoHqq1rR8OCoQ3wx5iRScLfgjO7F1-gwdH";
                 }
 
                 PatientProfile patient = new PatientProfile()
@@ -73,7 +78,7 @@ namespace HospitalService.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Login = model.Login,
-                    Image = fileName,
+                    Image = model.ImageName,
                     DateOfBirth = Convert.ToDateTime(model.TimeOfBirth),
                     Sicknesses = null,
                     VisitRequests = null

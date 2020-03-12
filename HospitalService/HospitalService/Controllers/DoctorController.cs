@@ -12,6 +12,10 @@ namespace HospitalService.Controllers
     public class DoctorController : Controller
     {
         private readonly IDoctors _doctors;
+        public DoctorController(IDoctors doctors)
+        {
+            _doctors = doctors;
+        }
         public IActionResult Index()
         {
             return View();
@@ -42,6 +46,22 @@ namespace HospitalService.Controllers
             ViewBag.Title = "All Doctors";
             return View(doctorObj);
 
+        }
+
+        [HttpGet]
+        public IActionResult DoctorRegister()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DoctorRegister(RegisterDoctorViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var roleName = "Doctor";
+            }
+            return View();
         }
     }
 }

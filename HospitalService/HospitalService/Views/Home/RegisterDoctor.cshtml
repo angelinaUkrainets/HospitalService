@@ -1,4 +1,4 @@
-﻿@model HospitalService.ViewModels.RegisterViewModel
+﻿@model HospitalService.ViewModels.RegisterDoctorViewModel
 @{
     Layout = null;
 }
@@ -11,7 +11,7 @@
     <div>Hospital<span>Service</span></div>
 </div>
 <br>
-<form method="post" asp-controller="Home" asp-action="Register" enctype="multipart/form-data">
+<form method="post" asp-controller="Doctor" asp-action="DoctorRegister" enctype="multipart/form-data">
     <div class="login">
         <input asp-for="FirstName" type="text" placeholder="First Name"><br>
         <span asp-validation-for="FirstName"></span>
@@ -28,8 +28,16 @@
         <input asp-for="Email" type="email" placeholder="Email"><br>
         <span asp-validation-for="Email"></span>
 
-        <input asp-for="TimeOfBirth" type="datetime" placeholder="Date of Birth"><br>
-        <span asp-validation-for="TimeOfBirth"></span>
+        <select asp-for="SicknessId">
+            <option value="1">Pediatrician</option>
+            <option value="2">Surgeon</option>
+            <option value="3">Oculist</option>
+            <option value="4">Dentist</option>
+            <option value="5">Therapist</option>
+        </select>
+
+        <input asp-for="Experience" type="text" placeholder="Experience"><br>
+        <span asp-validation-for="Experience"></span>
 
         <input asp-for="Password" type="password" placeholder="Password"><br>
         <span asp-validation-for="Password"></span>

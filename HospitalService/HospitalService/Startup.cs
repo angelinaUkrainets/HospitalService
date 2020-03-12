@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HospitalService.Data.EFContext;
+using HospitalService.Data.Interfaces;
+using HospitalService.Data.Repository;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -50,6 +52,7 @@ namespace HospitalService
                     options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Home/Login");
                 });
 
+            services.AddTransient<IDoctors, DoctorRepository>();
             services.AddMemoryCache();
             services.AddSession();
 

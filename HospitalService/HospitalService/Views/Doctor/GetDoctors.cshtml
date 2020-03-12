@@ -1,9 +1,27 @@
-﻿
-@{
-    ViewData["Title"] = "GetDoctors";
+﻿@{
+    Layout = "_Layout";
 }
 
-<div class="container">
-
+<h3>@ViewBag.Title</h3>
+<div class="row mt-5 mb-2">
+    @{
+        <table>
+            <tr>
+                <th>NAME</th>
+                <th>EXPERIENCE</th>
+                <th>Specialization</th>
+                <th>IMAGE</th>
+            </tr>
+            @foreach (var item in Model.GetDoctors)
+            {
+                <tr>
+                    <td class="name-surname"><span style="color:darkblue">@item.FirstName</span>@item.LastName</td>
+                    <td>@item.Experience</td>
+                    <td>@item.Specialization.Type</td>
+                    <td><img src="@item.Image" /></td>
+                </tr>
+            }
+        </table>
+    }
 </div>
 
